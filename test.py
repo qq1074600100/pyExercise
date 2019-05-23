@@ -1,16 +1,8 @@
-from student import Student
+import sympy
 
-# 测试:
-if Student.count != 0:
-    print('测试失败!')
-else:
-    bart = Student('Bart')
-    if Student.count != 1:
-        print('测试失败!')
-    else:
-        lisa = Student('Bart')
-        if Student.count != 2:
-            print('测试失败!')
-        else:
-            print('Students:', Student.count)
-            print('测试通过!')
+x, y = sympy.symbols('x y')
+f = (x+y)**2 + (x+1)**2 + (y+3)**2
+# 赋值: 注意x_tmp的名字一定不能与符号x同名！！
+x_tmp = 1
+y_tmp = -1
+print(f.evalf(subs={x: x_tmp, y: y_tmp}))
